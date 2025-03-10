@@ -1,0 +1,59 @@
+header {
+  display: flex;
+  justify-content: center;
+  nav {
+    ul {
+      li {
+        list-style: none;
+      }
+    }
+  }
+}
+
+main {
+  div {
+    display: flex;
+    justify-content: center;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      input {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  h1 {
+    text-align: center;
+  }
+
+  button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .article {
+    border: 1px solid black;
+    border-radius: 3%;
+    width: 25%;
+    margin: 2em;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 5em;
+
+    img {
+      width: 80%;
+    }
+  }
+
+  .buttonValidation {
+    background-color: red;
+    color: white;
+    margin-top: 3em;
+  }
+}
