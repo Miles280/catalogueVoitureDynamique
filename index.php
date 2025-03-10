@@ -4,6 +4,11 @@ require_once("blocs/header.php");
 require_once("blocs/connectDB.php");
 ?>
 
+<?php
+session_start();
+var_dump($_SESSION);
+?>
+
 <main>
     <h1>Catalogue de voitures</h1>
     <form action="add.php">

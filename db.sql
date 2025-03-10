@@ -20,3 +20,7 @@ INSERT INTO car (model, brand, horsePower, image)
 VALUES ('Mustang', 'Ford', 450, 'mustang.jpg');
 INSERT INTO car (model, brand, horsePower, image)
 VALUES ('911 Carrera', 'Porsche', 379, 'carrera.jpg');
+
+CREATE TABLE User ( id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(255) NOT NULL,
+password VARCHAR(255) NOT NULL);

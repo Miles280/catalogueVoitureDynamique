@@ -13,7 +13,8 @@
         <nav>
             <ul>
                 <li><a href="index.php">Index</a></li>
-                <li><a href="add.php">Add</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
 
