@@ -13,20 +13,17 @@ if (!isset($_GET["carId"])) {
 }
 
 // Récupération des données de la voiture depuis la BDD
-$requete = $pdo->prepare("SELECT * FROM car WHERE id = :id");
-$requete->execute(["id" => $_GET["carId"]]);
-$goodCar = $requete->fetch();
-
-if (!$goodCar) {
-    header("Location: index.php");
+$car = selectCarByID($pdo, $_GET["carId"]);
+if (!isset($car)) {
+    header("Location: admin.php");
     exit();
 }
 
 $errors = [];
-$model = $goodCar["model"];
-$brand = $goodCar["brand"];
-$horsePower = $goodCar["horsePower"];
-$image = $goodCar["image"];
+$model = $car["model"];
+$brand = $car["brand"];
+$horsePower = $car["horsePower"];
+$image = $car["image"];
 
 // Vérification de la soumission du formulaire
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -59,16 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Si aucune erreur, on met à jour la base de données
     if (empty($errors)) {
-        $requete = $pdo->prepare("UPDATE car SET model = :model, brand = :brand, horsePower = :horsePower, image = :image WHERE id = :id");
-        $requete->execute([
-            "model" => $model,
-            "brand" => $brand,
-            "horsePower" => $horsePower,
-            "image" => $image,
-            "id" => $goodCar["id"]
-        ]);
-
-        header("Location: index.php");
+        updateCar($pdo, $model, $brand, $horsePower, $image, $car["id"]);
+        header("Location: admin.php");
         exit();
     }
 }
@@ -78,10 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <h1>Modification d'un article</h1>
     <div>
         <article class="article">
-            <h2><?= htmlspecialchars($goodCar["model"]) ?></h2>
-            <img src="pictures/<?= htmlspecialchars($goodCar["image"]) ?>" alt="Image de la voiture">
-            <p><?= htmlspecialchars($goodCar["brand"]) ?></p>
-            <p><?= htmlspecialchars($goodCar["horsePower"]) ?> chevaux</p>
+            <h2><?= htmlspecialchars($car["model"]) ?></h2>
+            <img src="pictures/<?= htmlspecialchars($car["image"]) ?>" alt="Image de la voiture">
+            <p><?= htmlspecialchars($car["brand"]) ?></p>
+            <p><?= htmlspecialchars($car["horsePower"]) ?> chevaux</p>
         </article>
 
         <form method="POST" enctype="multipart/form-data">

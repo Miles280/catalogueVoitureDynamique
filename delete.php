@@ -5,17 +5,10 @@ require_once("blocs/connectDB.php");
 require_once("blocs/functions.php");
 
 verifySession(); // Vérifie que l'utilisateur est connecté
-$goodCar = null;
 
-foreach ($cars as $car) {
-    if ($car["id"] == $_GET["carId"]) {
-        $goodCar = $car;
-        break;
-    }
-};
-
-if (isset($goodCar) === false) {
-    header("Location:index.php");
+$car = selectCarByID($pdo, $_GET["carId"]);
+if (!isset($car)) {
+    header("Location:admin.php");
     exit();
 }
 ?>
@@ -24,10 +17,10 @@ if (isset($goodCar) === false) {
     <h1>Modification d'un article</h1>
     <div>
         <article class="article">
-            <h2><?= $goodCar["model"] ?></h2>
-            <img src="pictures/<?= $goodCar["image"] ?>" alt="">
-            <p><?= $goodCar["brand"] ?></p>
-            <p><?= $goodCar["horsePower"] ?> chevaux</p>
+            <h2><?= $car["model"] ?></h2>
+            <img src="pictures/<?= $car["image"] ?>" alt="">
+            <p><?= $car["brand"] ?></p>
+            <p><?= $car["horsePower"] ?> chevaux</p>
         </article>
 
         <form method="POST">
@@ -40,13 +33,8 @@ if (isset($goodCar) === false) {
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    $requete = $pdo->prepare("DELETE FROM car WHERE id = :id;");
-    $requete->execute([
-        "id" => $goodCar["id"],
-    ]);
-
-    header("Location: index.php");
+    deleteCar($pdo, $car["id"]);
+    header("Location: admin.php");
     exit();
 }
 ?>

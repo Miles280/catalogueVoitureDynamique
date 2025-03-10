@@ -42,15 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Si aucune erreur, insertion en base de données
     if (empty($errors)) {
-        $requete = $pdo->prepare("INSERT INTO car (model, brand, horsePower, image) 
-                                  VALUES (:model, :brand, :horsePower, :image)");
-        $requete->execute([
-            "model" => $model,
-            "brand" => $brand,
-            "horsePower" => $horsePower,
-            "image" => basename($targetFilePath),
-        ]);
-
+        insertCar($pdo, $model, $brand, $horsePower, basename($targetFilePath));
         header("Location: index.php");
         exit();
     }
