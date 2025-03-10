@@ -2,6 +2,10 @@
 $styleCustom = "addStyles.css";
 require_once("blocs/header.php");
 require_once("blocs/connectDB.php");
+require_once("blocs/functions.php");
+
+
+verifySession(); // Vérifie que l'utilisateur est connecté
 
 $errors = [];
 $model = $brand = $horsePower = "";
@@ -28,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Gestion de l'upload de l'image si aucun problème
     if (empty($errors) && !empty($_FILES["image"]["name"])) {
-        $allowedExtensions = ["jpg", "jpeg", "png"];
         $fileName = basename($_FILES["image"]["name"]);
         $targetFilePath = "pictures/" . $fileName;
 

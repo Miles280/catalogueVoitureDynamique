@@ -2,9 +2,9 @@
 $styleCustom = "deleteStyles.css";
 require_once("blocs/header.php");
 require_once("blocs/connectDB.php");
-?>
+require_once("blocs/functions.php");
 
-<?php
+verifySession(); // Vérifie que l'utilisateur est connecté
 $goodCar = null;
 
 foreach ($cars as $car) {

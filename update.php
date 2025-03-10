@@ -2,6 +2,9 @@
 $styleCustom = "updateStyles.css";
 require_once("blocs/header.php");
 require_once("blocs/connectDB.php");
+require_once("blocs/functions.php");
+
+verifySession(); // Vérifie que l'utilisateur est connecté
 
 // Vérification que l'ID de la voiture est bien fourni
 if (!isset($_GET["carId"])) {

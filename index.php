@@ -9,7 +9,7 @@ session_start();
 var_dump($_SESSION);
 ?>
 
-<main>
+<!-- <main>
     <h1>Catalogue de voitures</h1>
     <form action="add.php">
         <button class="buttonAdd">Ajouter une voiture</button>
@@ -33,7 +33,7 @@ var_dump($_SESSION);
         }
         ?>
     </div>
-</main>
+</main> -->
 
 <?php
 require_once("blocs/footer.php")
