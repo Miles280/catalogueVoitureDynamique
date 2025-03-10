@@ -4,15 +4,10 @@ require_once("blocs/header.php");
 require_once("blocs/connectDB.php");
 ?>
 
-<?php
-session_start();
-var_dump($_SESSION);
-?>
-
-<!-- <main>
+<main>
     <h1>Catalogue de voitures</h1>
-    <form action="add.php">
-        <button class="buttonAdd">Ajouter une voiture</button>
+    <form action="login.php">
+        <button class="buttonAdd">Se connecter</button>
     </form>
     <div class="catalogue">
         <?php
@@ -25,15 +20,13 @@ var_dump($_SESSION);
                 <p><?= $car["horsePower"] ?> chevaux</p>
                 <form method="GET">
                     <input type="hidden" name="carId" value="<?= $car["id"] ?>">
-                    <button class="buttonModify" formaction="update.php">Modifier</button>
-                    <button class="buttonSupp" formaction="delete.php">Supprimer</button>
                 </form>
             </div>
         <?php
         }
         ?>
     </div>
-</main> -->
+</main>
 
 <?php
 require_once("blocs/footer.php")

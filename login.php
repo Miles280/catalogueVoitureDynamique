@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <button class="connexionButton">Se connecter</button>
 </form>
 
+<a href="signin.php">S'inscrire</a>
 
 <?php
 require_once("blocs/footer.php")

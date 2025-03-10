@@ -14,7 +14,7 @@ if (!isset($car)) {
 ?>
 
 <main>
-    <h1>Modification d'un article</h1>
+    <h1>Suppresion d'un article</h1>
     <div>
         <article class="article">
             <h2><?= $car["model"] ?></h2>
