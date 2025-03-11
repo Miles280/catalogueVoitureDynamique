@@ -1,5 +1,5 @@
 <?php
-$styleCustom = "updateStyles.css";
+$styleCustom = "CSS/updateStyles.css";
 require_once("blocs/header.php");
 require_once("blocs/connectDB.php");
 require_once("blocs/functions.php");
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <?php if (isset($errors["brand"])) echo "<p class='error'>" . $errors["brand"] . "</p>"; ?>
 
             <label>Puissance (chevaux) :</label>
-            <input type="number" name="horsePower" min="1" value="<?= htmlspecialchars($horsePower) ?>">
+            <input type="number" name="horsePower" min="50" value="<?= htmlspecialchars($horsePower) ?>">
             <?php if (isset($errors["horsePower"])) echo "<p class='error'>" . $errors["horsePower"] . "</p>"; ?>
 
             <label>Nouvelle Image (optionnel) :</label>

@@ -1,5 +1,5 @@
 <?php
-$styleCustom = "indexStyles.css";
+$styleCustom = "CSS/indexStyles.css";
 require_once("blocs/header.php");
 require_once("blocs/connectDB.php");
 ?>
@@ -29,5 +29,5 @@ require_once("blocs/connectDB.php");
 </main>
 
 <?php
-require_once("blocs/footer.php")
+require_once("blocs/footer.php");
 ?>

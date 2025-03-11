@@ -1,4 +1,5 @@
 <?php
+$styleCustom = "";
 require_once("blocs/header.php");
 require_once("blocs/connectDB.php")
 ?>

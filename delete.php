@@ -1,5 +1,5 @@
 <?php
-$styleCustom = "deleteStyles.css";
+$styleCustom = "CSS/deleteStyles.css";
 require_once("blocs/header.php");
 require_once("blocs/connectDB.php");
 require_once("blocs/functions.php");

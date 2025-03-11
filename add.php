@@ -1,5 +1,5 @@
 <?php
-$styleCustom = "addStyles.css";
+$styleCustom = "CSS/addStyles.css";
 require_once("blocs/header.php");
 require_once("blocs/connectDB.php");
 require_once("blocs/functions.php");
